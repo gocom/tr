@@ -24,10 +24,8 @@
  */
 
 /**
- * Extract release notes from Markdown formatted changelog document.
- *
- * Allows parsing CHANGELOG.md document contents, and extracting release notes from it.
- * Written in TypeScript, and supports both client-side web browser and Node.js backend usage.
+ * Search-and-replaces in a string haystack, or translate strings. Written in TypeScript, and supports both client-side
+ * web browser and Node.js backend usage.
  *
  * @module API
  * @group Library
@@ -43,5 +41,6 @@ export {
 
 export type {
   From,
+  Pairs,
   To,
 } from './types/Tr';

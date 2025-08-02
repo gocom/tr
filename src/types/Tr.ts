@@ -24,6 +24,21 @@
  */
 
 /**
+ * Replacement from-to pairs.
+ *
+ * @group Library
+ * @category Types
+ * @example
+ * ```ts
+ * {
+ *   'any needle to search': 'replacement value',
+ *   'other needle': 'other replacement value',
+ * }
+ * ```
+ */
+export type Pairs = {[key: From]: To};
+
+/**
  * Looked up needle that is replaced with the given {@link To} value.
  *
  * @group Library
@@ -32,7 +47,7 @@
 export type From = string;
 
 /**
- * Target value that the given {@link From} key is replaced with.
+ * Target value that the {@link From} key is replaced with.
  *
  * @group Library
  * @category Types

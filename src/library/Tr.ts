@@ -23,7 +23,7 @@
  * SOFTWARE.
  */
 
-import type {From, To} from '../types/Tr';
+import type {Pairs} from '../types/Tr';
 
 /**
  * Replaces given pairs in the haystack.
@@ -36,6 +36,13 @@ import type {From, To} from '../types/Tr';
  * is replaced with the {@link to} value, which then avoid searching needles
  * from the replacement {@link to} value.
  *
+ * @param {string} haystack
+ * @param {Pairs} pairs Replacement {@link from}-{@link to} pairs as a key-value-object. The object key is the search
+ * needle, and the value is the target replacement value.
+ * @return {string} The haystack with replacement pairs replaced.
+ * @group Library
+ * @category API
+ * @example
  * The following:
  * ```ts
  * import {tr} from '@gocom/tr';
@@ -48,16 +55,12 @@ import type {From, To} from '../types/Tr';
  *  }
  * );
  * ```
- *
  * Returns:
  * ```
  * red, blue, yellow
  * ```
- *
- * @group Library
- * @category API
  */
-export const tr = (haystack: string, pairs: {[key: From]: To}) => {
+export const tr = (haystack: string, pairs: Pairs): string => {
   let result = '';
   let match = false;
   let replacement = '';
