@@ -8,6 +8,6 @@
 
 > **From** = `string`
 
-Defined in: [types/Tr.ts:32](https://github.com/gocom/tr/blob/d768b53543ce63b35a5f07cac228ce05f8680e95/src/types/Tr.ts#L32)
+Defined in: [types/Tr.ts:47](https://github.com/gocom/tr/blob/61eac308bdad04dbca08c383f1f95ceeef546b7a/src/types/Tr.ts#L47)
 
 Looked up needle that is replaced with the given [To](API.To.md) value.

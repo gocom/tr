@@ -8,7 +8,7 @@
 
 > **tr**(`haystack`, `pairs`): `string`
 
-Defined in: [library/Tr.ts:60](https://github.com/gocom/tr/blob/d768b53543ce63b35a5f07cac228ce05f8680e95/src/library/Tr.ts#L60)
+Defined in: [library/Tr.ts:63](https://github.com/gocom/tr/blob/61eac308bdad04dbca08c383f1f95ceeef546b7a/src/library/Tr.ts#L63)
 
 Replaces given pairs in the haystack.
 
@@ -19,6 +19,27 @@ the already replaced values.
 This is achieved by moving pointer forward when a found from value
 is replaced with the to value, which then avoid searching needles
 from the replacement to value.
+
+## Parameters
+
+### haystack
+
+`string`
+
+### pairs
+
+[`Pairs`](../Types/API.Pairs.md)
+
+Replacement from-to pairs as a key-value-object. The object key is the search
+needle, and the value is the target replacement value.
+
+## Returns
+
+`string`
+
+The haystack with replacement pairs replaced.
+
+## Example
 
 The following:
 ```ts
@@ -32,20 +53,7 @@ tr(
  }
 );
 ```
-
 Returns:
 ```
 red, blue, yellow
 ```
-
-## Parameters
-
-### haystack
-
-`string`
-
-### pairs
-
-## Returns
-
-`string`

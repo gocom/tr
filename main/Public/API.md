@@ -6,10 +6,8 @@
 
 # API
 
-Extract release notes from Markdown formatted changelog document.
-
-Allows parsing CHANGELOG.md document contents, and extracting release notes from it.
-Written in TypeScript, and supports both client-side web browser and Node.js backend usage.
+Search-and-replaces in a string haystack, or translate strings. Written in TypeScript, and supports both client-side
+web browser and Node.js backend usage.
 
 ## See
 
@@ -26,4 +24,5 @@ Written in TypeScript, and supports both client-side web browser and Node.js bac
 ### Types
 
 - [From](../Types/API.From.md)
+- [Pairs](../Types/API.Pairs.md)
 - [To](../Types/API.To.md)
