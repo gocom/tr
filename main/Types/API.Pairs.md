@@ -8,7 +8,7 @@
 
 > **Pairs** = `object`
 
-Defined in: [types/Tr.ts:39](https://github.com/gocom/tr/blob/61eac308bdad04dbca08c383f1f95ceeef546b7a/src/types/Tr.ts#L39)
+Defined in: [types/Tr.ts:39](https://github.com/gocom/tr/blob/f2a3888acbfa5e79ec19136d26884bd6ac9e43c2/src/types/Tr.ts#L39)
 
 Replacement from-to pairs.
 
