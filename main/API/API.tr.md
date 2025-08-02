@@ -8,7 +8,7 @@
 
 > **tr**(`haystack`, `pairs`): `string`
 
-Defined in: [library/Tr.ts:60](https://github.com/gocom/tr/blob/5d7bfeee009011b109a94df35dbc09dbb3ad0d11/src/library/Tr.ts#L60)
+Defined in: [library/Tr.ts:60](https://github.com/gocom/tr/blob/d768b53543ce63b35a5f07cac228ce05f8680e95/src/library/Tr.ts#L60)
 
 Replaces given pairs in the haystack.
 
