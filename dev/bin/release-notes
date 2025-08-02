@@ -61,14 +61,14 @@ EOF
 Using npm:
 
 \`\`\`shell
-$ npm install @gocom/changelog@^$version
+$ npm install @gocom/tr@^$version
 \`\`\`
 
-[$version on npmjs.com](https://www.npmjs.com/package/@gocom/changelog/v/$version).
+[$version on npmjs.com](https://www.npmjs.com/package/@gocom/tr/v/$version).
 
 ## 📖 Documentation
 
-[API Docs for $version](https://github.com/gocom/changelog/blob/docs/$version/Public/API.md).
+[API Docs for $version](https://github.com/gocom/tr/blob/docs/$version/Public/API.md).
 EOF
 
 }

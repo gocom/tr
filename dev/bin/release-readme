@@ -51,7 +51,7 @@ EOF
 -----
 $notes
 
-For changes in previous versions, see [CHANGELOG.md](https://github.com/gocom/changelog/blob/$version/CHANGELOG.md).
+For changes in previous versions, see [CHANGELOG.md](https://github.com/gocom/tr/blob/$version/CHANGELOG.md).
 
 EOF
   fi
