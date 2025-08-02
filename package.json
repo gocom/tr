@@ -1,0 +1,44 @@
+{
+  "name": "@gocom/tr",
+  "version": "0.1.0",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "generate-docs": "typedoc",
+    "lint": "eslint",
+    "lint:fix": "eslint --fix",
+    "test": "jest",
+    "watch": "tsc --watch"
+  },
+  "keywords": [
+    "tr",
+    "search",
+    "replace",
+    "translate"
+  ],
+  "author": {
+    "name": "Jukka Svahn",
+    "url": "https://github.com/gocom"
+  },
+  "license": "MIT",
+  "description": "Search and replace substrings in a string haystack",
+  "homepage": "https://github.com/gocom/tr",
+  "bugs": "https://github.com/gocom/tr/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gocom/tr.git"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.13.2",
+    "eslint": "^9.21.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.6",
+    "typedoc": "^0.28.7",
+    "typedoc-plugin-markdown": "^4.7.0",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.26.0"
+  },
+  "types": "./dist/index.d.ts"
+}
