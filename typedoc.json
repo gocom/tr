@@ -1,0 +1,27 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "categorizeByGroup": true,
+  "router": "category",
+  "entryPoints": [
+    "./src/index.ts"
+  ],
+  "alwaysCreateEntryPointModule": true,
+  "sortEntryPoints": true,
+  "out": "docs",
+  "plugin": [
+    "typedoc-plugin-markdown"
+  ],
+  "readme": "none",
+  "useFirstParagraphOfCommentAsSummary": true,
+  "categoryOrder": [
+    "API",
+    "Public",
+    "Options",
+    "Types",
+    "*"
+  ],
+  "groupOrder": [
+    "Library",
+    "*"
+  ]
+}
