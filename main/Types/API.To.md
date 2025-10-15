@@ -8,6 +8,6 @@
 
 > **To** = `string`
 
-Defined in: [types/Tr.ts:55](https://github.com/gocom/tr/blob/861d9a16328fbea650eab23cc1c4e65d92b91d19/src/types/Tr.ts#L55)
+Defined in: [types/Tr.ts:55](https://github.com/gocom/tr/blob/d1cdf18c31ac4b32e79ec7cd72ce35ccce9ca59b/src/types/Tr.ts#L55)
 
 Target value that the [From](API.From.md) key is replaced with.
