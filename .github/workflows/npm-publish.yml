@@ -21,7 +21,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24
 
       - name: Configure token
         env:
@@ -33,7 +33,15 @@ jobs:
       - name: Get metadata
         id: meta
         run: |
-          echo "version=$(basename "$GITHUB_REF")" >> $GITHUB_OUTPUT
+          version="$(basename "$GITHUB_REF")"
+
+          case "$version" in
+            *"-"*) tag="prerelease" ;;
+            *) tag="latest" ;;
+          esac
+
+          echo "version=$version" >> $GITHUB_OUTPUT
+          echo "tag=$tag" >> $GITHUB_OUTPUT
 
       - name: Pre-publish
         run: make pre-publish VERSION=${{ steps.meta.outputs.version }}
@@ -42,4 +50,5 @@ jobs:
         run: make build
 
       - name: Publish
-        run: npm publish --provenance --access public
+        run: npm publish --provenance --access public --tag ${{ steps.meta.outputs.tag }}
+        if: ${{ vars.SKIP_PUBLISH != 'true' }}
