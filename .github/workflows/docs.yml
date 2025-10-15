@@ -24,12 +24,10 @@ jobs:
       - name: Install dependencies
         run: make install
 
-      - name: Get version
-        id: version
+      - name: Get metadata
+        id: meta
         run: |
-          echo "contents<<VERSIONEOF" >> $GITHUB_OUTPUT
-          echo "$GITHUB_REF" | cut -d / -f 3 >> $GITHUB_OUTPUT
-          echo "VERSIONEOF" >> $GITHUB_OUTPUT
+          echo "version=$(basename "$GITHUB_REF")" >> $GITHUB_OUTPUT
 
       - name: Generate docs
         run: make generate-docs
@@ -42,5 +40,5 @@ jobs:
           FOLDER: docs
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SKIP_EMPTY_COMMITS: true
-          MESSAGE: "Docs for ${{ steps.version.outputs.contents }} commit {sha}"
-          TARGET_DIR: ${{ steps.version.outputs.contents }}
+          MESSAGE: "Docs for ${{ steps.meta.outputs.version }} commit {sha}"
+          TARGET_DIR: ${{ steps.meta.outputs.version }}

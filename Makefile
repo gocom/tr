@@ -1,14 +1,15 @@
 .PHONY: all build build-destroy clean generate-docs generate-release-notes help install lint lint-fix nvm pack pre-publish rebuild test watch
 .ONESHELL:
+.SHELLFLAGS = -ec
 
-NVM_DIR ?= ${HOME}/.nvm
-NVM = ${NVM_DIR}/nvm.sh
 NPM = npm
 
 all: build
 install: node_modules dist
 
-build: nvm node_modules
+build:
+	@. ./dev/hook/nvm.sh
+	@$(MAKE) -s node_modules
 	$(NPM) run build
 
 build-destroy:
@@ -16,52 +17,56 @@ build-destroy:
 	@rm -rf dist
 
 dist:
+	@. ./dev/hook/nvm.sh
+	@$(MAKE) -s node_modules
 	$(NPM) run build
 
 clean:
 	rm -rf dist docs node_modules package-lock.json test-reports
 
-lint: nvm node_modules
+lint:
+	@. ./dev/hook/nvm.sh
+	@$(MAKE) -s node_modules
 	$(NPM) run lint
 
-lint-fix: nvm node_modules
+lint-fix:
+	@. ./dev/hook/nvm.sh
+	@$(MAKE) -s node_modules
 	$(NPM) run lint:fix
 
-node_modules: nvm
+node_modules:
 ifeq (,$(wildcard node_modules))
+	@. ./dev/hook/nvm.sh
 	$(NPM) install
-endif
-
-nvm:
-ifneq ("$(wildcard $(NVM))", "")
-	@. $(NVM)
-	@if ! nvm use; then
-	@	nvm install
-	@	nvm use
-	@fi
-else
-	@echo "nvm not found at $(NVM)"
-	@echo "Will use any node and npm from PATH"
 endif
 
 rebuild: build-destroy build
 
-pack: install
+pack:
+	@. ./dev/hook/nvm.sh
+	@$(MAKE) -s install
 	$(NPM) pack
 
-test: node_modules
+test:
+	@. ./dev/hook/nvm.sh
+	@$(MAKE) -s node_modules
 	$(NPM) run test
 
-watch: node_modules
+watch:
+	@. ./dev/hook/nvm.sh
+	@$(MAKE) -s node_modules
 	$(NPM) run watch
 
-generate-docs: install
+generate-docs:
+	@. ./dev/hook/nvm.sh
+	@$(MAKE) -s install
 	$(NPM) run generate-docs
 
 generate-release-notes:
 	./dev/bin/release-notes "$(VERSION)" > RELEASE-NOTES.md
 
-pre-publish: nvm
+pre-publish:
+	@. ./dev/hook/nvm.sh
 	$(NPM) version "$(VERSION)" --no-commit-hooks --no-git-tag-version --allow-same-version
 	./dev/bin/release-readme "$(VERSION)" > .README.md.tmp
 	mv .README.md.tmp README.md

@@ -1,12 +1,10 @@
 Contributing
 =====
 
-Please take a quick look at this document before to make contribution process easier for all parties involved.
-
 License
 -----
 
-[MIT](https://raw.github.com/gocom/tr/master/LICENSE).
+[MIT](./LICENSE).
 
 Versioning
 -----
@@ -29,9 +27,9 @@ If nvm is not installed, the Makefile defaults to any node and npm binaries foun
 
 Clone the repository, or a fork of it, and run the installer:
 
-````shell
+```shell
 $ make install
-````
+```
 
 ### Available commands
 
@@ -58,7 +56,7 @@ Unit tests can be run with:
 $ make test
 ```
 
-If you are opening a PR to the repository, uou do not need to update CHANGELOG.md. We will take care of compiling it
+If you are opening a PR to the repository, you do not need to update CHANGELOG.md. We will take care of compiling it
 before new release is published. After tests pass, fell free to open PR to the repository.
 
 For maintainers
@@ -72,9 +70,8 @@ CI automatically publishes any git tags to the npm registry.
 
 #### Update changelog
 
-Before tagging a commit, make sure that [CHANGELOG.md](https://raw.github.com/gocom/tr/master/CHANGELOG.md)
-is up-to-date. The top most section and the version number in the heading should match the new tag you are about
-to create.
+Before tagging a commit, make sure that [CHANGELOG.md](./CHANGELOG.md) is up-to-date. The top most section and the
+version number in the heading should match the new tag you are about to create.
 
 #### Tagging release
 

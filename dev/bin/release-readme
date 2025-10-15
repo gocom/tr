@@ -22,7 +22,7 @@ EOF
 }
 
 main () {
-  local version notes number minor prerelease
+  local version notes number minor prerelease url
 
   version="${1:-}"
 
@@ -31,27 +31,25 @@ main () {
     exit 1
   fi
 
-  # Header.
-  cat <<EOF
-Changelog
------
-EOF
+  url="$(grep -m 1  '"bugs": "' package.json | cut -d'"' -f4 | cut -d'/' -f1-5)"
 
-  # Remove badges, replace branch URL references with the version tag.
-  sed -e "1,/\[/d" -e '/🛠️ Development/,$d' README.md \
-    | sed "s/\/main\//\/$version\//"
+  # Remove development section, badges, replace branch URL references with the version tag.
+  sed '/🛠️ Development/,+5d' README.md \
+    | sed '4 s/^\[!\[.*)$//' \
+    | sed "s/\/main\//\/$version\//" \
+    | sed "s/\/master\//\/$version\//" \
+    | cat -s
 
   # Add changes section.
   notes="$(sed -e "1,/## $version/d" -e '/##/,$d' CHANGELOG.md)"
 
   if [ "$notes" ]; then
     cat <<EOF
-
 🚀 Changes in $version
 -----
 $notes
 
-For changes in previous versions, see [CHANGELOG.md](https://github.com/gocom/tr/blob/$version/CHANGELOG.md).
+For changes in previous versions, see [CHANGELOG.md]($url/blob/$version/CHANGELOG.md).
 
 EOF
   fi

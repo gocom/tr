@@ -22,7 +22,7 @@ EOF
 }
 
 main () {
-  local version notes patch prerelease
+  local version notes patch prerelease name url
 
   version="${1:-}"
 
@@ -33,6 +33,8 @@ main () {
 
   patch="$(echo "$version" | sed -e 's#^\([0-9]*\.[0-9]*\.[0-9]*\).*#\1#')"
   notes="$(sed -e "1,/## $version/d" -e '/##/,$d' CHANGELOG.md)"
+  name="$(grep -m 1  '"name": "' package.json | cut -d'"' -f4)"
+  url="$(grep -m 1  '"bugs": "' package.json | cut -d'"' -f4 | cut -d'/' -f1-5)"
 
   if [[ "$version" = *"-"* ]]; then
     prerelease=1
@@ -61,14 +63,14 @@ EOF
 Using npm:
 
 \`\`\`shell
-$ npm install @gocom/tr@^$version
+$ npm install $name@^$version
 \`\`\`
 
-[$version on npmjs.com](https://www.npmjs.com/package/@gocom/tr/v/$version).
+[$version on npmjs.com](https://www.npmjs.com/package/$name/v/$version).
 
 ## 📖 Documentation
 
-[API Docs for $version](https://github.com/gocom/tr/blob/docs/$version/Public/API.md).
+[API Docs for $version]($url/blob/docs/$version/Public/API.md).
 EOF
 
 }
